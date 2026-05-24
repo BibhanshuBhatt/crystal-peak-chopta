@@ -41,33 +41,24 @@ function closeMobile() {
   let timer      = null;
 
   function goTo(index) {
-    // Mark current slide as "leaving" (fades out + slight extra zoom-out)
-    slides[current].classList.remove('active');
-    slides[current].classList.add('leaving');
-    dots[current].classList.remove('active');
+    if (index === current) return;
 
-    // After the transition ends, clean up the leaving class
-    const leaving = slides[current];
-    leaving.addEventListener('transitionend', function cleanup(e) {
-      if (e.propertyName === 'opacity') {
-        leaving.classList.remove('leaving');
-        leaving.removeEventListener('transitionend', cleanup);
-      }
-    });
-
+    const previous = current;
     current = index;
 
-    // New slide: reset to zoomed-in, then trigger active state next frame
-    slides[current].style.transition = 'none';
-    slides[current].style.transform  = 'scale(1.12)';
-    slides[current].style.opacity    = '0';
+    // Start fade-out of outgoing slide while the next slide fades in.
+    slides[previous].classList.add('leaving');
+    dots[previous].classList.remove('active');
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        slides[current].style.transition = '';  // restore CSS transition
-        slides[current].classList.add('active');
-        dots[current].classList.add('active');
-      });
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+
+    const outgoing = slides[previous];
+    outgoing.addEventListener('transitionend', function cleanup(e) {
+      if (e.propertyName === 'opacity') {
+        outgoing.classList.remove('active', 'leaving');
+        outgoing.removeEventListener('transitionend', cleanup);
+      }
     });
   }
 
