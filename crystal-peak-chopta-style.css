@@ -7,10 +7,10 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --pine:        #1a2e1e;
-  --forest:      #2d4a32;
-  --moss:        #4a6741;
-  --sage:        #5c7a52;
+  --pine:        #141210;
+  --forest:      #3c332c;
+  --moss:        #a07c54;
+  --sage:        #b79c7f;
   --cream:       #faf7f2;
   --cream-dark:  #f0ebe0;
   --warm-white:  #ffffff;
@@ -55,7 +55,7 @@ section nav {
   transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
 }
 #navbar.scrolled {
-  background: rgba(26,46,30,0.96);
+  background: rgba(14,13,11,0.92);
   backdrop-filter: blur(14px);
   box-shadow: 0 2px 24px rgba(0,0,0,0.18);
 }
@@ -127,28 +127,36 @@ section nav {
 }
 
 /* Slide layers */
-.hero-slides { position: absolute; inset: 0; }
+.hero-slides {
+  position: absolute; inset: 0;
+  background: #090706;
+}
 
 .slide {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
   opacity: 0;
-  transform: scale(1.13);
-  transition:
-    opacity 1.5s cubic-bezier(0.4,0,0.2,1),
-    transform 7s cubic-bezier(0.25,0.46,0.45,0.94);
+  transform: scale(0.12);
+  transition: opacity 2s ease-in-out;
   will-change: opacity, transform;
 }
 .slide.active {
   opacity: 1;
-  transform: scale(1);
+  z-index: 2;
+  animation: heroZoom 5.5s ease-in-out forwards;
 }
 .slide.leaving {
   opacity: 0;
-  transform: scale(0.97);
-  transition:
-    opacity 1.5s cubic-bezier(0.4,0,0.2,1),
-    transform 1.5s cubic-bezier(0.4,0,0.2,1);
+  z-index: 1;
+}
+
+@keyframes heroZoom {
+  0% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* 4 hero photos — local images from Hero-images/ folder */
@@ -162,9 +170,9 @@ section nav {
   position: absolute; inset: 0; z-index: 1;
   background:
     linear-gradient(180deg,
-      rgba(18,38,20,0.32) 0%,
-      rgba(18,38,20,0.55) 55%,
-      rgba(12,26,14,0.93) 100%);
+      rgba(12,10,8,0.28) 0%,
+      rgba(10,9,7,0.56) 55%,
+      rgba(6,5,4,0.92) 100%);
 }
 
 /* Slide dots */
@@ -228,7 +236,7 @@ section nav {
 .hero-stats {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 5;
   display: flex; justify-content: center;
-  background: rgba(12,26,14,0.75); backdrop-filter: blur(10px);
+  background: rgba(8,8,8,0.75); backdrop-filter: blur(10px);
   border-top: 1px solid rgba(184,137,58,0.2);
   opacity: 0; animation: fadeUp 0.9s 1.25s forwards;
 }
