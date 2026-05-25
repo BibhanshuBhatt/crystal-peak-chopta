@@ -89,8 +89,7 @@
   <!-- Preload first hero image for faster LCP (Largest Contentful Paint) -->
   <link rel="preload" as="image" href="Hero-images/himalayan-mountain-view.webp" type="image/webp" />
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="mobile.css" />
+  <link rel="stylesheet" href="crystal-peak-chopta-style.css" />
 </head>
 <body>
 
@@ -128,41 +127,48 @@
 
 <!-- ══ HERO — 4-slide image carousel ══ -->
 <section id="hero" aria-label="Welcome to Crystal Peak Chopta">
-
-  <!-- Slideshow backgrounds — sit behind everything -->
+  <!-- Slideshow backgrounds -->
   <div class="hero-slides" aria-hidden="true">
     <div class="slide slide-1 active"></div>
     <div class="slide slide-2"></div>
     <div class="slide slide-3"></div>
     <div class="slide slide-4"></div>
   </div>
-
-  <!-- Dark overlay for readability -->
+  <!-- Green overlay kept on every slide -->
   <div class="hero-overlay" aria-hidden="true"></div>
 
-  <!-- Main hero content — left-aligned, bold, like reference site -->
+  <!-- Slide dots -->
+  <div class="slide-dots" aria-label="Slideshow navigation">
+    <button class="dot active" data-slide="0" aria-label="Himalayan mountain view from Chopta"></button>
+    <button class="dot"        data-slide="1" aria-label="Chandrashila summit panorama"></button>
+    <button class="dot"        data-slide="2" aria-label="Tungnath temple mountain landscape"></button>
+    <button class="dot"        data-slide="3" aria-label="Chopta Tungnath trekking trail"></button>
+  </div>
+
+  <!-- Content -->
   <div class="hero-content">
-    <p class="hero-eyebrow">Welcome To Crystal Peak Chopta</p>
-    <h1 class="hero-title">
-      <span class="hero-line-1">Experience</span>
-      <span class="hero-line-2">Best Camping</span>
-      <span class="hero-line-3">in Chopta</span>
-    </h1>
-    <p class="hero-sub">Sleep under the stars, wake up to mountain views, and feel the<br/>magic of nature — all from your cozy camp near Tungnath.</p>
+    <span class="hero-badge">Chopta · Uttarakhand · 2680m Altitude</span>
+    <h1>Where the Himalayas<br/>Meet <em>Comfort</em></h1>
+    <p class="hero-sub">Luxury camping 1 km from Tungnath Temple &amp; Chandrashila Peak</p>
     <div class="hero-actions">
-      <a href="#packages" class="btn-hero-primary">Get Started</a>
-      <a href="#booking"  class="btn-hero-outline">Book Now</a>
+      <a href="#booking"  class="btn-primary">⛺ Book Your Stay</a>
+      <a href="#packages" class="btn-outline">View Packages</a>
     </div>
   </div>
 
-  <!-- Slide dots bottom-center -->
-  <div class="slide-dots" aria-label="Slideshow navigation">
-    <button class="dot active" data-slide="0" aria-label="Himalayan mountain view"></button>
-    <button class="dot"        data-slide="1" aria-label="Chandrashila summit"></button>
-    <button class="dot"        data-slide="2" aria-label="Tungnath temple trail"></button>
-    <button class="dot"        data-slide="3" aria-label="Chopta valley trek"></button>
+  <!-- Stats bar -->
+  <div class="hero-stats" aria-label="Key highlights">
+    <div class="stat"><div class="stat-num">₹999</div><div class="stat-label">Starting Per Night</div></div>
+    <div class="stat"><div class="stat-num">2680m</div><div class="stat-label">Altitude</div></div>
+    <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Guest Rating</div></div>
+    <div class="stat"><div class="stat-num">1 km</div><div class="stat-label">From Tungnath</div></div>
   </div>
 
+  <!-- Scroll hint -->
+  <div class="scroll-indicator" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
 </section>
 
 <!-- ══ MARQUEE ══ -->
@@ -209,80 +215,59 @@
 
 <!-- ══ PACKAGES ══ -->
 <section id="packages" aria-labelledby="packages-heading">
-  <!-- Full background image with dark overlay -->
-  <div class="packages-bg" aria-hidden="true"></div>
-  <div class="packages-overlay" aria-hidden="true"></div>
+  <p class="section-label reveal">Our Stays</p>
+  <h2 id="packages-heading" class="section-title reveal">Choose Your <em>Experience</em></h2>
+  <p class="section-sub reveal">All packages include breakfast, evening bonfire &amp; panoramic mountain views</p>
+  <div class="packages-grid">
 
-  <div class="packages-inner">
-    <div class="packages-header reveal">
-      <p class="section-label-white">Tour Package</p>
-      <h2 id="packages-heading" class="section-title-white">Tour<br/><em>Package</em></h2>
-      <p class="packages-sub">At Crystal Peak Chopta, we offer carefully crafted packages for an unforgettable <strong>camping in Chopta</strong> experience</p>
-    </div>
+    <article class="package-card reveal">
+      <div class="package-icon" aria-hidden="true">🏕️</div>
+      <h3 class="package-name">Base Camp</h3>
+      <p class="package-desc">Perfect for solo trekkers and budget travellers seeking the authentic mountain spirit</p>
+      <div class="package-price">₹999 <span>/ person / night</span></div>
+      <ul class="package-perks" aria-label="Base Camp inclusions">
+        <li>Sharing tent (2–3 persons)</li>
+        <li>Common washroom</li>
+        <li>Breakfast included</li>
+        <li>Evening bonfire</li>
+        <li>Himalayan mountain view</li>
+      </ul>
+      <button class="pkg-btn" onclick="openWhatsApp('Base Camp')">Book on WhatsApp</button>
+    </article>
 
-    <div class="packages-grid">
+    <article class="package-card featured reveal">
+      <div class="featured-tag">Most Popular</div>
+      <div class="package-icon" aria-hidden="true">⛺</div>
+      <h3 class="package-name">Summit Stay</h3>
+      <p class="package-desc">Our signature package — luxury tent with attached washroom, hot water &amp; all meals</p>
+      <div class="package-price">₹1,799 <span>/ person / night</span></div>
+      <ul class="package-perks" aria-label="Summit Stay inclusions">
+        <li>Private deluxe tent</li>
+        <li>Attached washroom + hot water</li>
+        <li>All meals (3 times daily)</li>
+        <li>Guided trek assistance</li>
+        <li>Stargazing session</li>
+        <li>Bonfire &amp; music evening</li>
+      </ul>
+      <button class="pkg-btn" onclick="openWhatsApp('Summit Stay')">Book on WhatsApp</button>
+    </article>
 
-      <article class="package-card reveal">
-        <div class="pkg-top">
-          <h3 class="package-name">Base Camp</h3>
-          <p class="package-desc">Perfect for solo trekkers and budget travellers seeking the authentic mountain spirit</p>
-        </div>
-        <div class="pkg-price-block">
-          <div class="package-price">₹999</div>
-          <div class="pkg-per">/ person</div>
-        </div>
-        <ul class="package-perks" aria-label="Base Camp inclusions">
-          <li>Dinner</li>
-          <li>Breakfast</li>
-          <li>Hot Water</li>
-          <li>Evening Bonfire</li>
-          <li>Mountain View</li>
-        </ul>
-        <button class="pkg-btn" onclick="openWhatsApp('Base Camp')">Book Now</button>
-      </article>
+    <article class="package-card reveal">
+      <div class="package-icon" aria-hidden="true">👨‍👩‍👧</div>
+      <h3 class="package-name">Family Retreat</h3>
+      <p class="package-desc">Spacious family tent with kids activities, personalised service &amp; priority seating</p>
+      <div class="package-price">₹4,999 <span>/ family / night</span></div>
+      <ul class="package-perks" aria-label="Family Retreat inclusions">
+        <li>Large family tent (4 persons)</li>
+        <li>Attached washroom + hot water</li>
+        <li>All meals included</li>
+        <li>Kids nature activities</li>
+        <li>Priority bonfire spot</li>
+        <li>Photography assistance</li>
+      </ul>
+      <button class="pkg-btn" onclick="openWhatsApp('Family Retreat')">Book on WhatsApp</button>
+    </article>
 
-      <article class="package-card featured reveal">
-        <div class="featured-tag">Most Popular</div>
-        <div class="pkg-top">
-          <h3 class="package-name">Summit Stay</h3>
-          <p class="package-desc">Our signature package — luxury tent with attached washroom, hot water &amp; all meals</p>
-        </div>
-        <div class="pkg-price-block">
-          <div class="package-price">₹1,799</div>
-          <div class="pkg-per">/ person</div>
-        </div>
-        <ul class="package-perks" aria-label="Summit Stay inclusions">
-          <li>Dinner</li>
-          <li>Breakfast</li>
-          <li>Hot Water</li>
-          <li>Tea &amp; Snacks</li>
-          <li>Stargazing Session</li>
-          <li>Bonfire &amp; Music</li>
-        </ul>
-        <button class="pkg-btn" onclick="openWhatsApp('Summit Stay')">Book Now</button>
-      </article>
-
-      <article class="package-card reveal">
-        <div class="pkg-top">
-          <h3 class="package-name">Family Retreat</h3>
-          <p class="package-desc">Best value for families — spacious tent, all meals &amp; kids nature activities</p>
-        </div>
-        <div class="pkg-price-block">
-          <div class="package-price">₹4,999</div>
-          <div class="pkg-per">/ family</div>
-        </div>
-        <ul class="package-perks" aria-label="Family Retreat inclusions">
-          <li>Dinner</li>
-          <li>Breakfast</li>
-          <li>Hot Water</li>
-          <li>Tea &amp; Snacks</li>
-          <li>Kids Activities</li>
-          <li>Priority Bonfire Spot</li>
-        </ul>
-        <button class="pkg-btn" onclick="openWhatsApp('Family Retreat')">Book Now</button>
-      </article>
-
-    </div>
   </div>
 </section>
 
@@ -550,6 +535,6 @@
    title="Book on WhatsApp"
    aria-label="Book on WhatsApp">💬</a>
 
-<script src="script.js"></script>
+<script src="crystal-peak-chopta-script.js"></script>
 </body>
 </html>
