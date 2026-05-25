@@ -179,16 +179,15 @@ section nav {
 /* Dark blackish overlay — always present on every slide */
 .hero-overlay {
   position: absolute; inset: 0; z-index: 3;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(0, 0, 0, 0.52);
 }
 
 /* ── Hero content — left-aligned, bold ── */
 .hero-content {
   position: relative; z-index: 5;
   max-width: 1200px; width: 100%;
-  margin: 0 auto; 
+  margin: 0 auto; padding: 0 4rem;
   padding-top: 80px; /* clear fixed nav */
-  
 }
 
 .hero-eyebrow {

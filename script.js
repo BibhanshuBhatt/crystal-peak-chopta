@@ -155,11 +155,8 @@ function closeMobile() {
     });
   });
 
-  /* ── Init: reset all slides, then activate the first slide so its zoom transition fires */
-  slides.forEach((s, i) => {
-    resetSlide(s);
-    if (i === 0) activateSlide(s);
-  });
+  /* ── Init: activate first slide, start cycle ── */
+  slides.forEach((s, i) => i === 0 ? activateSlide(s) : resetSlide(s));
   dots[0] && dots[0].classList.add('active');
   runCycle();
 
